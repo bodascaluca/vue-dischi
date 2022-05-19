@@ -5,16 +5,16 @@
     </div>
 
     <div class="main">
-      <MainDischi />
+      <div class="conteiner-dischi">
+        <MainDischi />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import HeaderLogo from "./components/HeaderLogo.vue"
-import MainDischi from "./components/MainDischi.vue"
-
-
+import HeaderLogo from "./components/HeaderLogo.vue";
+import MainDischi from "./components/MainDischi.vue";
 
 export default {
   name: 'App',
@@ -26,14 +26,18 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./style/common.scss";
 
   .header{
     height: 100px;
     background-color:#2d3b46;
+    display: flex;
+    align-items:center;
   }
 
   .main{
     height:calc(100vh - 100px);
     background-color:#1d2e3b;
+    padding-top:2rem;
   }
 </style>
