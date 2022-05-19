@@ -21,7 +21,7 @@ export default {
 @import "../style/common.scss";
 
 img{
-    width:150px;
+    width:90%;
     margin:1rem 0;
 }
 

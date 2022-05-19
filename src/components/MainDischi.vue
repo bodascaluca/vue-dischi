@@ -1,16 +1,18 @@
 <template>
-  <div class="container-main">
-
-    
-          <CardAlbum v-for="(item, index) in albums" :key="index" :album="item"/>
+<div>
+    <div v-if="loading">loading</div>
+         <div v-else class="container-main">
+                 <CardAlbum v-for="(item, index) in albums" :key="index" :album="item"/>
+         </div>
    
-
-  </div>
+</div>
 </template>
 
 <script>
 import CardAlbum from "./CardAlbum.vue";
 import axios from "axios";
+
+
 export default {
     name:"MainDischi",
     components:{
@@ -24,7 +26,8 @@ export default {
                 title: "Il mio primo album",
                 year: "2022"
             },
-            albums:[]
+            albums:[],
+            loading:true
         }
     },
     created(){
@@ -32,6 +35,7 @@ export default {
         .then((resp)=>{
             console.log(resp.data.response);
             this.albums = resp.data.response;
+            this.loading = false;
         })
     }
 }
@@ -39,6 +43,8 @@ export default {
 
 <style scoped lang="scss">
 @import "../style/common.scss";
+
+
 
 .container-main{
     border: 1px solid blue;
@@ -49,12 +55,12 @@ export default {
 
     .card{
         width:calc(100% /5 - 8px);
-        height:300px;
+        // height:300px;
         border:1px solid yellow;
         margin: 5px 4px;
         text-align:center;
         background-color:#2d3b46 ;
-
+        font-size:.6rem;
     }
 
 }
