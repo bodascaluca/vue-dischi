@@ -1,5 +1,6 @@
 <template>
 <div>
+    <NumbersAlbums :albums="albums.length"/>
     <div v-if="loading"> 
     <TestDue />
     </div>
@@ -13,6 +14,7 @@
 <script>
 import CardAlbum from "./CardAlbum.vue";
 import TestDue from "./TestDue.vue";
+import NumbersAlbums from "./NumbersAlbums.vue"
 import axios from "axios";
 
 
@@ -21,6 +23,7 @@ export default {
     components:{
          CardAlbum,
          TestDue,
+         NumbersAlbums
     },
     data:function(){
         return {
@@ -51,7 +54,6 @@ export default {
 
 
 .container-main{
-    border: 1px solid blue;
     width: 80%;
     margin: 0 auto;
     display:flex;
@@ -59,8 +61,6 @@ export default {
 
     .card{
         width:calc(100% /5 - 8px);
-        // height:300px;
-        border:1px solid yellow;
         margin: 5px 4px;
         text-align:center;
         background-color:#2d3b46 ;
