@@ -1,6 +1,8 @@
 <template>
 <div>
-    <div v-if="loading">loading</div>
+    <div v-if="loading"> 
+    <TestDue />
+    </div>
          <div v-else class="container-main">
                  <CardAlbum v-for="(item, index) in albums" :key="index" :album="item"/>
          </div>
@@ -10,6 +12,7 @@
 
 <script>
 import CardAlbum from "./CardAlbum.vue";
+import TestDue from "./TestDue.vue";
 import axios from "axios";
 
 
@@ -17,6 +20,7 @@ export default {
     name:"MainDischi",
     components:{
          CardAlbum,
+         TestDue,
     },
     data:function(){
         return {
