@@ -1,7 +1,7 @@
 <template>
 <div>
-    <div class="searchBar">
-        <SearchBar />
+    <div class="searchBar">     <!-- Sarebbe searchVord di SearchBa -->
+        <SearchBar @searchClicked="filterAlbums($event)"/>
     </div>
     <NumbersAlbums :albums="albums.length"/>
     <div v-if="loading"> 
@@ -49,6 +49,11 @@ export default {
             this.albums = resp.data.response;
             this.loading = false;
         })
+    },
+    methods:{               /*E' $event di riga 4 */
+        filterAlbums:function(searchKey){
+           console.log("Cerca", searchKey) 
+        }
     }
 }
 </script>
