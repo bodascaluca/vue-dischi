@@ -1,5 +1,8 @@
 <template>
 <div>
+    <div class="searchBar">
+        <SearchBar />
+    </div>
     <NumbersAlbums :albums="albums.length"/>
     <div v-if="loading"> 
     <TestDue />
@@ -14,7 +17,8 @@
 <script>
 import CardAlbum from "./CardAlbum.vue";
 import TestDue from "./TestDue.vue";
-import NumbersAlbums from "./NumbersAlbums.vue"
+import NumbersAlbums from "./NumbersAlbums.vue";
+import SearchBar from "./SearchBar.vue";
 import axios from "axios";
 
 
@@ -23,7 +27,8 @@ export default {
     components:{
          CardAlbum,
          TestDue,
-         NumbersAlbums
+         NumbersAlbums,
+         SearchBar
     },
     data:function(){
         return {
@@ -51,7 +56,10 @@ export default {
 <style scoped lang="scss">
 @import "../style/common.scss";
 
-
+.searchBar{
+    display:flex;
+    justify-content: space-around;
+}
 
 .container-main{
     width: 80%;
