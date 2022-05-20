@@ -8,7 +8,7 @@
     <TestDue />
     </div>
          <div v-else class="container-main">
-                 <CardAlbum v-for="(item, index) in albums" :key="index" :album="item"/>
+                 <CardAlbum v-for="(item, index) in filteredAlbums" :key="index" :album="item"/>
          </div>
    
 </div>
@@ -32,14 +32,9 @@ export default {
     },
     data:function(){
         return {
-            mioAlbum: {
-                poster: "",
-                author: "Loris",
-                title: "Il mio primo album",
-                year: "2022"
-            },
             albums:[],
-            loading:true
+            loading:true,
+            selectedGenre: ''
         }
     },
     created(){
@@ -50,9 +45,16 @@ export default {
             this.loading = false;
         })
     },
+     computed: {
+         filteredAlbums() {
+            return this.albums.filter((item) => {
+                return item.genre.toLowerCase().includes(this.selectedGenre.toLowerCase())
+            })
+        }
+    },
     methods:{               /*E' $event di riga 4 */
         filterAlbums:function(searchKey){
-           console.log("Cerca", searchKey) 
+            this.selectedGenre = searchKey;
         }
     }
 }
